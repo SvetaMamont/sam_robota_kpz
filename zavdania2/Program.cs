@@ -36,7 +36,10 @@ class Manager : Employee, IReportable
 
     public void GenerateReport()
     {
-        Console.WriteLine($"Звіт менеджера {Name}: Контроль виконання завдань.");
+        // Розраховуємо загальну суму
+        decimal totalSalary = Salary + CalculateBonus();
+        Console.WriteLine($"Звіт менеджера {Name}:");
+        Console.WriteLine($"Загальна сума: {totalSalary:F0} грн.");
     }
 }
 
@@ -68,7 +71,6 @@ class Program
             if (emp is IReportable reportable)
             {
                 reportable.GenerateReport();
-                Console.WriteLine();
             }
             
         }
