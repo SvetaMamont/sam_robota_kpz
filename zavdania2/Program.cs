@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Базовий клас Employee
+
 abstract class Employee
 {
     public string Name { get; set; }
