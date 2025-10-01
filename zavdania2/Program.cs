@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 // Базовий клас Employee
-class Employee
+abstract class Employee
 {
     public string Name { get; set; }
     public decimal Salary { get; set; }
@@ -12,13 +12,11 @@ class Employee
         Salary = salary;
     }
     // Віртуальний метод для обчислення бонусу
-    public virtual decimal CalculateBonus()
-    {
-        return 0; // За замовчуванням бонус відсутній
-    }
+    public abstract decimal CalculateBonus();
+ 
     public override string ToString()
     {
-        return $"{Name}, Зарплата: {Salary}, Бонус: {CalculateBonus()}";
+        return $"{Name}, Зарплата: {Salary:F0}, Бонус: {CalculateBonus():F2}";
     }
 }
 // Інтерфейс для звіту
@@ -70,8 +68,9 @@ class Program
             if (emp is IReportable reportable)
             {
                 reportable.GenerateReport();
+                Console.WriteLine();
             }
-            Console.WriteLine();
+            
         }
     }
 }
